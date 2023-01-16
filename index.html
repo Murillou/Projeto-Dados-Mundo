@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src='script.js' defer></script>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart(){
+        const container = document.querySelector("#chart")
+        const data = new google.visualization.arrayToDataTable([
+            ['Country', 'Population', { role: 'style'}],
+            ['World', 8000000000, '#D2691E'],
+            ['China', 1426000000, '#D2691E'],
+            ['Índia', 1412000000, '#D2691E'],
+            ['EUA', 337000000, 'color:#D2691E;'],
+            ['Indónésia', 275000000, '#D2691E'],
+            ['Paquistão', 234000000, '#D2691E'],
+            ['Nigéria', 216000000, '#D2691E'],
+            ['Brasil', 215000000, '#D2691E'],
+            ['Bangladesh', 170000000, '#D2691E'],
+            ['Russia', 127000000,'#D2691E' ]
+        ])
+        
+        const options = {
+            title: "População Mundial",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "95%"}
+        }
+        
+        const chart = new google.visualization.BarChart(container)
+        chart.draw(data, options)
+      }
+    </script>
+</body>
+</html>
